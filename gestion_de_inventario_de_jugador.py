@@ -1,4 +1,6 @@
 
+admin= "phonk"
+clave_admin= "1234"
 players={}
 while True:   
     print("                        MENU PRINCIPAL                           ")
@@ -14,8 +16,8 @@ while True:
     elif opciones == "b": #login
          usuario= input("usuario: ")
          clave= input("clave: ")
-         if usuario in players and players[usuario]["clave"] == clave:
-           print("Bienvenido",usuario)
+         if (usuario in players and players[usuario]["clave"] == clave) or (usuario == admin and clave == clave_admin):
+           print("Bienvenido",usuario,"ingresando al juego...") #agregar la segunda parte
     elif opciones == "c": #cerrar 
            print("juego cerrado")
            break
