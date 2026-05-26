@@ -1,10 +1,23 @@
-usuario_correcto= "phonk"
-usuario= ""
-clave_correcta= "jugador00156"
-clave= ""
-while clave != clave_correcta or usuario != usuario_correcto:
-    usuario= input("ingrese usuario: ")
-    clave= input("ingrese clave: ")
-    if clave != clave_correcta or usuario != usuario_correcto:
-        print("clave o usuario incorrecta intente nuevamente")
-print("vereficacion correcta. Ingresando al inventario...")        
+
+players={}
+while True:   
+    print("                        MENU PRINCIPAL                           ")
+    opciones= input("\na) registrar cuenta / b) iniciar sescion / c) salir: ")
+    if opciones == "a": #registro de cuenta
+       usuario= input("crea un usuario: ")
+       clave= input("crea una clave: ")
+       if usuario in players:
+         print("Ese usaurio ya existe")
+       else:
+         players[usuario] = {"clave":clave} 
+         print("cuenta creada exitosamente")
+    elif opciones == "b": #login
+         usuario= input("usuario: ")
+         clave= input("clave: ")
+         if usuario in players and players[usuario]["clave"] == clave:
+           print("Bienvenido",usuario)
+    elif opciones == "c": #cerrar 
+           print("juego cerrado")
+           break
+    else:
+       print("opcion no valida")
