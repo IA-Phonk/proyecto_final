@@ -8,7 +8,7 @@ while True:  #bucle para el menu principal
     print("3) salir")
     opciones= input("elige una opcion: ")
     if opciones == "1": #registro de cuenta
-       usuario= input("crea un usuario: ")
+       usuario= input("crea un usuario: ").lower()
        clave= input("crea una clave: ")
        if usuario in players:
          print("Ese usaurio ya existe")
@@ -19,7 +19,7 @@ while True:  #bucle para el menu principal
          intentos= 0
          limite= 3
          while True:
-           usuario= input("usuario: ")
+           usuario= input("usuario: ").lower()
            clave= input("clave: ")
            if (usuario in players and players[usuario]["clave"] == clave) or (usuario == admin and clave == clave_admin):
              print("Bienvenido",usuario,"ingresando al juego...") #agregar la segunda parte
