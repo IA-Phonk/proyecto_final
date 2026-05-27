@@ -3,8 +3,11 @@ clave_admin= "1234"
 players={}
 while True:  #bucle para el menu principal 
     print("===============================MENU PRINCIPAL==================================")
-    opciones= input("\na) registrar cuenta / b) iniciar sescion / c) salir: ")
-    if opciones == "a": #registro de cuenta
+    print("\n1) registrar cuenta")
+    print("2) iniciar sescion")
+    print("3) salir")
+    opciones= input("elige una opcion: ")
+    if opciones == "1": #registro de cuenta
        usuario= input("crea un usuario: ")
        clave= input("crea una clave: ")
        if usuario in players:
@@ -12,7 +15,9 @@ while True:  #bucle para el menu principal
        else:
          players[usuario] = {"clave":clave} 
          print("cuenta creada exitosamente")
-    elif opciones == "b": #login
+    elif opciones == "2": #login
+         intentos= 0
+         limite= 3
          while True:
            usuario= input("usuario: ")
            clave= input("clave: ")
@@ -20,8 +25,12 @@ while True:  #bucle para el menu principal
              print("Bienvenido",usuario,"ingresando al juego...") #agregar la segunda parte
              break
            else:
-             print("usuario o clave incorrectos")  
-    elif opciones == "c": #cerrar 
+             intentos += 1
+             print("usuario o clave incorrectos") 
+             if intentos == limite:
+              print("alcanzaste el limite permitido")
+              break  
+    elif opciones == "3": #cerrar 
            print("juego cerrado")
            break
     else:
